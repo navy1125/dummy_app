@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'unicorn'
 gem 'rails', '~> 3.1'
 gem 'cancan'
 gem 'devise', '~> 1.4'
@@ -9,9 +10,7 @@ gem 'paperclip', '~> 2.4'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'dragonfly'
-group :production do
-  gem 'pg'
-end
+gem 'mysql2'
 group :development, :test do
   gem 'sqlite3'
 end

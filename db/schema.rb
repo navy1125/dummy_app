@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123092549) do
+ActiveRecord::Schema.define(:version => 20141219015723) do
 
   create_table "balls", :force => true do |t|
     t.string   "color"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20111123092549) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "colosseum_user_levels", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "user_level"
+    t.integer  "times"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "colosseum_user_levels", ["user_no"], :name => "index_colosseum_user_levels_on_user_no"
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -70,14 +80,14 @@ ActiveRecord::Schema.define(:version => 20111123092549) do
     t.text     "text_field"
     t.integer  "integer_field"
     t.float    "float_field"
-    t.decimal  "decimal_field"
+    t.decimal  "decimal_field",             :precision => 10, :scale => 0
     t.datetime "datetime_field"
     t.datetime "timestamp_field"
     t.time     "time_field"
     t.date     "date_field"
     t.boolean  "boolean_field"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "format"
     t.string   "restricted_field"
     t.string   "protected_field"
@@ -155,6 +165,85 @@ ActiveRecord::Schema.define(:version => 20111123092549) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "user_hero_nums", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "hero_num"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_hero_nums", ["user_no"], :name => "index_user_hero_nums_on_user_no"
+
+  create_table "user_logins", :force => true do |t|
+    t.integer  "user_no"
+    t.string   "dt"
+    t.string   "reg_dt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_logins", ["user_no"], :name => "index_user_logins_on_user_no"
+
+  create_table "user_medals", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "medal_cnt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_medals", ["user_no"], :name => "index_user_medals_on_user_no"
+
+  create_table "user_mercenary_nums", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "mercenary_num"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "user_mercenary_nums", ["user_no"], :name => "index_user_mercenary_nums_on_user_no"
+
+  create_table "user_stage_processes", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "stage_info_no"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "user_stage_processes", ["user_no"], :name => "index_user_stage_processes_on_user_no"
+
+  create_table "user_stars", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "paid_star"
+    t.integer  "sub_star"
+    t.string   "paid_dt"
+    t.string   "reg_dt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_stars", ["user_no"], :name => "index_user_stars_on_user_no"
+
+  create_table "user_summaries", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "gold"
+    t.integer  "ap"
+    t.integer  "hero_max_level"
+    t.integer  "reg_dt"
+    t.string   "last_active_dt"
+    t.integer  "stage_info_no"
+    t.integer  "hero_num"
+    t.integer  "mercenary_num"
+    t.integer  "paid_user"
+    t.integer  "paid_gold"
+    t.integer  "paid_balance"
+    t.integer  "free_balance"
+    t.integer  "medal_cnt"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "user_summaries", ["user_no"], :name => "index_user_summaries_on_user_no"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
