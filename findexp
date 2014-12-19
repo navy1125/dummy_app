@@ -1,0 +1,9 @@
+#!/bin/bash
+
+find ./ -iname \*.rb -exec grep -n --color -H $1 \{\} \;
+find ./ -iname \*.erb -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.html -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.haml -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.js -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.css -exec grep -n --color  -H $1 \{\} \;
+find ./ -iname \*.scss -exec grep -n --color  -H $1 \{\} \;
