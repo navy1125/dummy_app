@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141219015723) do
+ActiveRecord::Schema.define(:version => 20141219194335) do
 
   create_table "balls", :force => true do |t|
     t.string   "color"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(:version => 20141219015723) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "cms_fans", :force => true do |t|
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "name",       :limit => 100, :null => false
   end
 
   create_table "colosseum_user_levels", :force => true do |t|
@@ -244,6 +250,35 @@ ActiveRecord::Schema.define(:version => 20141219015723) do
   end
 
   add_index "user_summaries", ["user_no"], :name => "index_user_summaries_on_user_no"
+
+  create_table "user_tracks", :force => true do |t|
+    t.integer  "user_no"
+    t.integer  "day1"
+    t.integer  "day2"
+    t.integer  "day3"
+    t.integer  "day4"
+    t.integer  "day5"
+    t.integer  "day6"
+    t.integer  "day7"
+    t.integer  "day8"
+    t.integer  "day9"
+    t.integer  "day10"
+    t.integer  "day11"
+    t.integer  "day12"
+    t.integer  "day13"
+    t.integer  "day14"
+    t.integer  "day15"
+    t.integer  "day16"
+    t.integer  "day17"
+    t.integer  "day18"
+    t.integer  "day19"
+    t.integer  "day20"
+    t.integer  "day21"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_tracks", ["user_no"], :name => "index_user_tracks_on_user_no"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

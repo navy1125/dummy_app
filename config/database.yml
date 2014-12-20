@@ -43,3 +43,32 @@ production:
 # username: xxx 
 # password: xxx 
 # database: xxx 
+
+brave_brigage:
+  adapter: mysql2
+  encoding: utf8
+  database: gamereport_bb
+  pool: 5
+  username: root
+
+soul_guardian:
+  adapter: mysql2
+  encoding: utf8
+  database: gamereport_sg
+  pool: 5
+  username: root
+
+captain_hero:
+  adapter: mysql2
+  encoding: utf8
+  database: gamereport_ch
+  pool: 5
+  username: root
+
+pocket_knight:
+  adapter: mysql2
+  encoding: utf8
+  database: gamereport_ch
+  pool: 5
+  username: root
+
