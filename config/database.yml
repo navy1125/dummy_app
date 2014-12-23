@@ -68,7 +68,7 @@ captain_hero:
 pocket_knight:
   adapter: mysql2
   encoding: utf8
-  database: gamereport_ch
+  database: gamereport_pk
   pool: 5
   username: root
 

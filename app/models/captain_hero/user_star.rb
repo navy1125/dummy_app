@@ -1,6 +1,6 @@
 module CaptainHero
   class UserStar < ActiveRecord::Base
-    establish_connection :brave_brigage
+    establish_connection :captain_hero
     # attr_accessible :title, :body
   end
 end

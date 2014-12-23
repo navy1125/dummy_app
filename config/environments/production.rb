@@ -21,6 +21,7 @@ DummyApp::Application.configure do
   #config.assets.js_compressor  = :closure
   #config.assets.js_compressor  = :yui
   config.assets.css_compressor = :scss
+  config.assets.compile = true
 
   # Specifies the header that your server uses for sending files
   # (comment out if your front-end server doesn't support this)

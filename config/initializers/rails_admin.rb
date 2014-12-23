@@ -1,12 +1,18 @@
 require 'dragonfly/rails/images'
 
 RailsAdmin.config do |c|
+
   c.excluded_models = [RelTest]
   c.authenticate_with {}
   c.current_user_method { current_user }
   c.main_app_name = ['Zqgame', 'Navy']
   c.authorize_with :cancan
   c.audit_with :history, User
+
+  c.actions do
+    all # NB: comment out this line for RailsAdmin < 0.6.0
+    charts
+  end
 
   c.model Cms::BasicPage do
     visible false
@@ -47,6 +53,10 @@ RailsAdmin.config do |c|
   end
   c.model BraveBrigage::UserLogin do
     exclude_fields :id,:created_at,:updated_at
+    export do
+      field :number_of_lanes
+    end
+  
   end
   c.model BraveBrigage::UserSummary do
     exclude_fields :id,:created_at,:updated_at
